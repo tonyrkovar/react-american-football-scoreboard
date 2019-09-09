@@ -5,8 +5,10 @@ import "./App.css";
 
 const BottomRow = () => {
   const [down, setDown] = useState(1);
-  const [yards, setYards] = useState(0);
+  const [yards, setYards] = useState(1);
   const [quarter, setQuarter] = useState(1);
+  const [ballOn, setBallON] = useState('');
+
   return (
     <div className="bottomRow">
       <div className="down">
@@ -29,15 +31,16 @@ const BottomRow = () => {
       </div>
       <div className="ballOn">
         <h3 className="ballOn__title">Ball on</h3>
-        <div className="ballOn__value">21</div>
-        <button>+</button>
-        <button>Reset</button>
+        <div className="ballOn__value">{ballOn}</div>
+        <form>
+          <input type='text'></input>
+          <input type="submit"></input>
+        </form>
       </div>
       <div className="quarter">
         <h3 className="quarter__title">Quarter</h3>
         <div className="quarter__value">{quarter}</div>
         <button onClick= {() => quarter < 4 ? setQuarter(quarter+1) : setQuarter(1)}>+</button>
-        <button>-</button>
       </div>
     </div>
   );
